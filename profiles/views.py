@@ -6,6 +6,8 @@ from .models import Profile
 from .serializers import ProfileSerializer
 from fshn_api.permissions import IsOwnerOrReadOnly
 
+# Parts taken fro DRF-API walkthrough.
+
 
 class ProfileList(APIView):
     """
