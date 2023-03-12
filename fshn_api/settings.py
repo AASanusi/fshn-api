@@ -40,6 +40,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-aasanusi-fshnapi-n0b7yg1l2dx.ws-eu90.gitpod.io']
+
 
 # Application definition
 
