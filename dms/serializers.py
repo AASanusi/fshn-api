@@ -1,3 +1,4 @@
+from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from dms.models import Message
 
@@ -12,10 +13,20 @@ class MessageSerializer(serializers.ModelSerializer):
     receiver_name = serializers.ReadOnlyField(source='receiver.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    created_at = serializers.SerializerMethodField()
+    updated_at = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
+
+    def get_created_at(self, obj):
+        """Timestamp of message"""
+        return naturaltime(obj.created_at)
+
+    def get_updated_at(self, obj):
+        """Timestamp when message edited"""
+        return naturaltime(obj.updated_at)
 
     class Meta:
         model = Message
