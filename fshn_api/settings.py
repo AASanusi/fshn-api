@@ -65,10 +65,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'),
-    'localhost',
-    ]
+ALLOWED_HOSTS = ['localhost', 'fshn-api.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-aasanusi-fshnapi-n0b7yg1l2dx.ws-eu90.gitpod.io']
 
