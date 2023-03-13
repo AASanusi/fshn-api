@@ -6,7 +6,7 @@ from .serializers import MessageSerializer
 
 class MessageList(generics.ListCreateAPIView):
     """
-    List all followers
+    List all messages
     """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Message.objects.all()
@@ -16,7 +16,7 @@ class MessageList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class MessageDetail(generics.RetrieveDestroyAPIView):
+class MessageDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a message
     """
