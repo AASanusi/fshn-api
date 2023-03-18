@@ -1,4 +1,3 @@
-
 from rest_framework import generics, permissions
 from fshn_api.permissions import IsOwnerOrReadOnly
 from .models import Thought
@@ -7,7 +6,7 @@ from .serializers import ThoughttSerializer
 
 class ThoughtList(generics.ListCreateAPIView):
     """
-    List thoughts or create a thought if logged in
+    List thoughts or create a thought
     """
     serializer_class = ThoughtsSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -19,7 +18,7 @@ class ThoughtList(generics.ListCreateAPIView):
 
 class ThoughtDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve a thought and edit or delete it if you own it.
+    Retrieve a thought and edit or delete if owned by you.
     """
     serializer_class = ThoughtsSerializer
     permission_classes = [IsOwnerOrReadOnly]
