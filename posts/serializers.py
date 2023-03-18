@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from saves.models import Save
 
 # Parts taken from DRF-API walkthrough.
 
@@ -13,6 +14,8 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    save_id = serializers.SerializerMethodField()
+    saves_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         """
@@ -45,6 +48,15 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    def get_save_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            save = Save.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return save.id if save else None
+        return None
+
     class Meta:
         model = Post
         fields = [
@@ -52,4 +64,5 @@ class PostSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
+            'save_id', 'saves_count'
         ]
