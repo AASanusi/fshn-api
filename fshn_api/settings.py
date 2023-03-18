@@ -103,6 +103,7 @@ INSTALLED_APPS = [
     'followers',
     'saves',
     'dms',
+    'thoughts'
 ]
 SITE_ID = 1
 MIDDLEWARE = [
