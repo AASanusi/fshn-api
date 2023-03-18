@@ -1,32 +1,26 @@
-from rest_framework import status, permissions
-from rest_framework.response import Response
-from rest_framework.views import APIView
+
+from rest_framework import generics, permissions
+from fshn_api.permissions import IsOwnerOrReadOnly
 from .models import Thought
-from .serializers import ThoughtSerializer
+from .serializers import ThoughttSerializer
 
 
-class ThoughtList(APIView):
-    serializer_class = ThoughtSerializer
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly
-    ]
+class ThoughtList(generics.ListCreateAPIView):
+    """
+    List thoughts or create a thought if logged in
+    """
+    serializer_class = ThoughtsSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Thoughts.objects.all()
 
-    def get(self, request):
-        thoughts = Thought.objects.all()
-        serializer = ThoughtSerializer(
-            thoughts, many=True, context={'request': request}
-        )
-        return Response(serializer.data)
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
-    def thought(self, request):
-        serializer = ThoughtSerializer(
-            data=request.data, context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save(owner=request.user)
-            return Response(
-                serializer.data, status=status.HTTP_201_CREATED
-            )
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
+
+class ThoughtDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve a thought and edit or delete it if you own it.
+    """
+    serializer_class = ThoughtsSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Thoughts.objects.all()
