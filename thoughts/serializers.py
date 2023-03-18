@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from posts.models import Thought
+from thoughts.models import Thought
 
 
 class ThoughtSerializer(serializers.ModelSerializer):
