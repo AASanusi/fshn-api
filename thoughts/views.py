@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from fshn_api.permissions import IsOwnerOrReadOnly
 from .models import Thought
 from .serializers import ThoughtSerializer
