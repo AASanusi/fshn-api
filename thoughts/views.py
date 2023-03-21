@@ -19,6 +19,10 @@ class ThoughtList(generics.ListCreateAPIView):
         DjangoFilterBackend,
     ]
 
+    filterset_fields = [
+        'owner__profile',
+    ]
+
     search_fields = [
         'owner__username',
         'current_location',
