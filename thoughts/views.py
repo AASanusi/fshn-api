@@ -12,6 +12,18 @@ class ThoughtList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Thought.objects.all()
 
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+
+    search_fields = [
+        'owner__username',
+        'current_location',
+        'mood_selector',
+    ]
+
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
