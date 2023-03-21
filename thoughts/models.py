@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Thought(models.Model):
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    current_location = models.TextField(max_length=25, default='earth')
+    current_location = models.TextField(max_length=25, blank=True)
     mood_choices = [
         ('normal', 'Normal'),
         ('sad', 'Sad'),
@@ -19,7 +19,7 @@ class Thought(models.Model):
         ('excited', 'Excited')
     ]
     mood_selector = models.CharField(
-        max_length=32, choices=mood_choices, default='normal'
+        max_length=32, choices=mood_choices, default=''
     )
     content = models.TextField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
