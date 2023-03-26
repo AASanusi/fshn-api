@@ -148,7 +148,12 @@ Fashion is a social media platform created for all things fashion where designer
 ### Manual Testing
 - Manually confirmed that all the url address created works and opens with no error observed.
 - Tested the CRUD functionality for: Dms, Thoughts, Saves, Comments, Likes, Profiles, Posts, Followers
-   -  
+   - Created: new items for each model
+   - Read: all urls worked for each item
+   - Edit: capable of editing all items with no issues, this doesn't apply for Saves, Likes, Followers
+   - Delete: successfully deleted items with no issues
+- All search and filters feature all worked with no issues.
+- For deployed API, tests were done for urls and all loaded.  
 ### Automated Testing
 ### Validator Testing
 
