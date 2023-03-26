@@ -23,11 +23,6 @@ Fashion is a social media platform created for all things fashion where designer
       - [Thoughts](#Thoughts)
       - [Saves](#Saves)
       - [Messages](#Messages)
-   - [C.R.U.D]()
-      - [Create Thought](#Create-Thought)
-      - [Read Thought](#Read-Thought)
-      - [Edit Thought](#Edit-Thought)
-      - [Delete Thought](#Delete-Thought)
    - [Features Left to Implement](#Features-Left-to-Implement)
 - [Technologies Used](#Technologies-Used)
    - [Main Languages Used](#Main-Languages-Used)
@@ -55,6 +50,7 @@ Fashion is a social media platform created for all things fashion where designer
 ### Demographics
 - For developers who would like to build Front-end content-sharing web application to be intended for users to iteract with the application.
 ## User Stories
+To aid with viewing the users stories, you can click links to [Github Issues](https://github.com/AASanusi/fashion/issues). You can also view the [KANBAN board](https://github.com/users/AASanusi/projects/2).
 ### Epic 1: Navigation
 1. As a user I can view user's avatars so that I can easily identify users of the application.
 2. As a user I can view a navbar from every page so that I can navigate easily between pages.
@@ -104,21 +100,60 @@ Fashion is a social media platform created for all things fashion where designer
 ## Features
 ### Existing Features
 #### Profile
+- Unregistered users can sign up to a create a profile
+- Users can sign into their profile
+- Users can see registered profiles
+- Users can view lists of other Users
+- Users can see the a detail view of other users
 #### Posts
+- Unregistered and registered users view all posts
+- Once registered, Users can:
+  - create posts
+  - view their own posts
+  - edit their own posts
+  - delete their own posts
 #### Comments
+- Unregistered and registered users view all comments
+- Once registered, Users can:
+  - create comments
+  - view their own comments
+  - edit their own comments
+  - delete their own comments
 #### Likes
+- Unregistered and registered users view likes count on posts
+- Once registered, Users can:
+  - like other users post
+  - unlike other users post
 #### Followers
+- Unregistered and registered users view other users following and followers stats
+- Once registered, Users can:
+  - follow a user 
+  - unfollow a user 
+### Custom models created:
 #### Thoughts
+- Unregistered and registered users view all thoughts shared on thoughts page wall
+- Once registered, Users can:
+  - create thoughts
+  - view their own thoughts wall
+  - edit their own thoughts
+  - delete their own thoughts
 #### Saves
+- Unregistered and registered users view saves
+- Once registered, Users can:
+  - save other users post
+  - unsave other users post
 #### Messages
-
-### C.R.U.D
-#### Create Thought
-#### Read Thought
-#### Edit Thought
-#### Delete Thought
+- Only registered users can view all messages from other users
+- Once registered, Users can:
+  - message user
+  - view message
+  - edit their own message
+  - delete their own message
 
 ### Features Left to Implement
+- Future implementation will involve adding a categories model for all saved posts.
+- To implement sharing post to another user.
+- Function to block users.
 
 ## Technologies Used
 ### Main Languages Used
@@ -156,6 +191,16 @@ Fashion is a social media platform created for all things fashion where designer
 - For deployed API, tests were done for urls and all loaded.  
 ### Automated Testing
 ### Validator Testing
+#### CI Python Linter
+- Below are a few examples of python files that went through [PEP8 validator](https://pep8ci.herokuapp.com/) with no issues. All python files had no errors.
+- Message model through validator 
+![Message model through validator](/static/readme-images/message-validator.png)
+- Thoughts views through validator
+![Thoughts views through validator](/static/readme-images/thoughts-validator.png)
+- Saves serializers through validator
+![Saves serializers through validator](/static/readme-images/saves-validator.png)
+- Posts urls through validator
+![Posts urls through validator](/static/readme-images/posts-validator.png)
 
 ### Unfixed Bugs
 - All bugs were fixed before submitting the project.
