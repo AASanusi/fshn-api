@@ -2,9 +2,9 @@
 
 Fashion is a social media platform created for all things fashion where designers, models, stylist and creatives to interact with each other. They interact with each other via being able to post pictures to promote their brand, their style and fashion shows. They are also capable of sharing their thoughts on the current climate of fashion so that people can see their views on it and they also save certain posts so that they can go back to it to get inspiration from it. Fshn API has been created to back up and support all these demands from the users to be able to do these things. CRUD functionality was also implemented to allow the users to fully interact with the application.
 
-#### DEPLOYED BACKEND API [LINK]()
-#### DEPLOYED FRONTEND API [LINK]()
-#### DEPLOYED FRONTEND [REPOSITORY]()
+#### DEPLOYED BACKEND API [LINK](https://fshn-api.herokuapp.com/)
+#### DEPLOYED FRONTEND [LIVE SITE](https://fashion-react.herokuapp.com/)
+#### DEPLOYED FRONTEND [REPOSITORY](https://github.com/AASanusi/fashion)
 
 ## Contents
 - [Project Purpose](#Project-Purpose)
