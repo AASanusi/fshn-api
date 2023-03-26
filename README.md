@@ -1,108 +1,134 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Fshn API
 
-Welcome AASanusi,
+Fashion is a social media platform created for all things fashion where designers, models, stylist and creatives to interact with each other. They interact with each other via being able to post pictures to promote their brand, their style and fashion shows. They are also capable of sharing their thoughts on the current climate of fashion so that people can see their views on it and they also save certain posts so that they can go back to it to get inspiration from it. Fshn API has been created to back up and support all these demands from the users to be able to do these things. CRUD functionality was also implemented to allow the users to fully interact with the application.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+#### DEPLOYED BACKEND API [LINK]()
+#### DEPLOYED FRONTEND API [LINK]()
+#### DEPLOYED FRONTEND [REPOSITORY]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Contents
+- [Project Purpose]()
+- [Planning]()
+   - [Plan]()
+   - [Demographics]()
+- [User Stories]()
+- [Database]()
+- [Features]()
+   - [Existing Features]()
+      - [Profile]()
+      - [Posts]()
+      - [Comments]()
+      - [Likes]()
+      - [Followers]()
+      - [Thoughts]()
+      - [Saves]()
+      - [Messages]()
+   - [C.R.U.D]()
+      - [Create Thought]()
+      - [Read Thought]()
+      - [Edit Thought]()
+      - [Delete Thought]()
+- [Technologies Used]()
+   - [Main Languages Used]()
+   - [Frameworks, Libraries & Programs Used]()
+- [Testing]()
+   - [Manual Testing]()
+   - [Automated Testing]()
+   - [Validator Testing]()
+   - [Unfixed Bugs]()
+- [Deployment]()
+- [Credits]()
+   - [Content]()
+   - [Media]()
 
-## Gitpod Reminders
+## Project Purpose
+- To design and build a content-sharing web application with React and an API (Django REST Framework) Back-End. 
+- This is to allow users to browse and comment/like each others posts. Users will be able to follow each other as well as update and delete their own content too. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Planning
+### Plan
+- The plan for this project was to create three custom models to help with the functionalities. These are:
+   - Thoughts: A wall where users can share their thoughts to either promote their brand, style or on the current climate of fashion in 2023.
+   - Saves: Bookmark feature for users to save posts they like and would like to view later.
+   - Direct Messaging(dms): This is a private mode communication between users of the application.
+### Demographics
+- For developers who would like to build Front-end content-sharing web application to be intended for users to iteract with the application.
+## User Stories
+### Epic 1: Navigation
+- 1. As a user I can view user's avatars so that I can easily identify users of the application.
+- 2. As a user I can view a navbar from every page so that I can navigate easily between pages.
+- 3. As a logged out user I can see sign in and sign up options so that I can sign in/sign up.
+- 4. As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh.
+### Epic 2: Authentications
+- 5. As a user I can create a new account so that I can access all the features for signed up users.
+- 6. As a user I can sign in to the app so that I can access functionality for logged in users.
+- 7. As a user I can tell if I am logged in or not so that I can log in if needed.
+- 8. As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.
+### Epic 3: Posts
+- 9. As a logged in user I can create posts so that I can share my images with the world!
+- 10. As a user I can view the details of a single post so that I can learn more about it.
+- 11. As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content.
+- 12. As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.
+- 13. As a user I can keep scrolling through the page and scrolls are automatically loaded with no pagination.
+- 14. As a user I can view the posts page so that I can read the comments about the post.
+- 15. As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created.
+- 16. As a logged in user I can add comments to a post so that I can share my thoughts about the post.
+- 17. As a user I can see how long ago a comment was made so that I know which comments are new.
+- 18. As a user I can read comments on posts so that I can read other users thoughts.
+- 19. As an owner of a comment I can delete my comment so that I can remove comments I no longer want on a post.
+- 20. As an owner of a comment I can edit my comment so that I can fix or update existing comments on posts.
+- 21. As a logged in user I can like a post so that I can show appreciation for the post.
+### Epic 4: Profiles
+- 22. As a user I can view other users profiles so that I can see their posts and learn more about them.
+- 23. As a user I can see a list of people to follow based on being the most followed profiles so that I can see which profiles are popular.
+- 24. As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them.
+- 25. As a logged in user I can follow and unfollow other users so that I can follow profiles I like or unfollow users I no longer want to follow.
+- 26. As a logged in user I can edit my profile so that I can change my profile picture and bio.
+- 27. As a logged in user I can update my username and password so that I can change my display name and keep my profile secure.
+### Epic 5: Saves
+- 28. As a logged in user I can save a post so that I can bookmark the posts that interest me.
+- 29. As a logged in user I can unsave a post I longer like.
+- 30. As a logged in user I can view the posts I saved so that I can find the posts I enjoy the most.
+### Epic 6: Messages
+- 31. As a logged in user I can message other users so that I can chat with them.
+- 32. As a logged in user I can view the message so that I can see what I said.
+- 33. As a logged in user I can edit and delete my messages so that I can update and remove my messages.
+### Epic 7: Thoughts
+- 34. As a logged in user, I can share my thoughts and mood with everyone on the app.
+- 35. As a logged in user, I can write my location and share it with everyone on the app.
 
-`python3 -m http.server`
+## Database
 
-A blue button should appear to click: _Make Public_,
+## Features
 
-Another blue button should appear to click: _Open Browser_.
+### Existing Features
+#### Profile
+#### Posts
+#### Comments
+#### Likes
+#### Followers
+#### Thoughts
+#### Saves
+#### Messages
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### C.R.U.D
+#### Create Thought
+#### Read Thought
+#### Edit Thought
+#### Delete Thought
 
-A blue button should appear to click: _Make Public_,
+## Technologies Used
+### Main Languages Used
+### Frameworks, Libraries & Programs Used
 
-Another blue button should appear to click: _Open Browser_.
+## Testing
+### Manual Testing
+### Automated Testing
+### Validator Testing
+### Unfixed Bugs
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Deployment
 
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+## Credits
+### Content
+### Media
