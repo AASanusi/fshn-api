@@ -436,11 +436,11 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
 
 ## Credits
 ### Media
-- Defualt post image photo taken from Code Institue walkthrough video.
-- Defualt profile image photo taken from Code Institue walkthrough video.
+- Default post image photo taken from Code Institue walkthrough video.
+- Default profile image photo taken from Code Institue walkthrough video.
 ### Content
 - Code Institute walkthrough video "DRF-API" aided to form step by step process to create the API database.
-- [SteamIt]() was uswd to help create direct messaging model.
+- [SteamIt](https://steemit.com/utopian-io/@ajmaln/part-1-creating-a-simple-chat-app-with-djangorestframework) was uswd to help create direct messaging model.
 - Lauren-Nicole helped to refine my thoughts model.
 - Code Institute walkthrough DRF cheat sheet used for deployment section.
 
