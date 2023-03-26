@@ -28,6 +28,7 @@ Fashion is a social media platform created for all things fashion where designer
       - [Read Thought]()
       - [Edit Thought]()
       - [Delete Thought]()
+   - [Features Left to Implement]()
 - [Technologies Used]()
    - [Main Languages Used]()
    - [Frameworks, Libraries & Programs Used]()
@@ -117,18 +118,267 @@ Fashion is a social media platform created for all things fashion where designer
 #### Edit Thought
 #### Delete Thought
 
+### Features Left to Implement
+
 ## Technologies Used
 ### Main Languages Used
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 ### Frameworks, Libraries & Programs Used
+1. Django RESTFramework
+2. Django
+3. #### [Heroku](https://id.heroku.com/login)
+   - Heroku was used to deploy the project.
+4. Cloudinary
+5. Pillow
+6. Django Rest Auth
+7. #### [PostgreSQL](https://www.postgresql.org/)
+   - This was used for database.
+8. #### [Git:](https://git-scm.com/)
+   - Git was used in the Gitpod terminal to add, commit and push code to Github.
+9. #### [Gitpod:](https://www.gitpod.io/)
+   - Gitpod is the Integrated Developer Environment used to code this project.
+10. #### [Github:](https://github.com/)
+   - Github was used to hold and keep the pushed codes by Git and store projects.
+11. #### [Gitpod Python Essentials Template:](https://github.com/Code-Institute-Org/python-essentials-template)
+   - Gitpod Python Essentials Template was provided by code institute and it consisted of all the relevant tools needed for the successful running of the application.
+12. Lucid Chart
+13. ElephantSQL 
 
 ## Testing
 ### Manual Testing
 ### Automated Testing
 ### Validator Testing
+
 ### Unfixed Bugs
+- All bugs were fixed before submitting the project.
 
 ## Deployment
+The following steps will provide information on how to deploy to Heroku successfully.
+- Github repository and Gitpod workspace created prior.
+
+### Step 1:
+- Install Django, packages and supporting libraries via 'pip install' command in the Terminal"
+```
+django<4'
+dj3-cloudinary-storage
+Pillow
+dj_database_url
+djangorestframework
+django-filter
+dj-rest-auth
+'dj-rest-auth[with_social]'
+djangorestframework-simplejwt
+dj_database_url psycopg2
+gunicorn
+django-cors-headers
+```
+- Create Django project via:
+````
+django-admin startproject project_name .
+````
+### Step 2:
+#### New External Database
+- Log into [ElephantSQL]() account
+- On ElephantSQL dashboard and access the database instance name for the project
+- Copy ElephantSQL database URL(will be pasted in Convig Vars in Heroku and added to env.py on Gitpod later)
+
+### Step 3:
+#### Heroku App
+   - On Heroku, creat and open new App.
+   - Open settings tab and click to Reaveal Config Vars:
+      - Key: ALLOWED_HOST | Value: api-app-name.herokuapp.com
+      - Key: CLOUDINARY_URL | Value: cloudinary://hidden
+      - Key: DATABASE_URL | Value: postgres://hidden
+      - Key: DISABLE_COLLECTSTATIC | Value: 1
+      - Key: SECRET_KEY | Value: hidden
+##### Below are added after ReactApp:
+   - Key: CLIENT_ORIGIN | Value: https://react-app-name.herokuapp.com
+   - Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
+
+### Step 4:
+#### Prepare env.py file
+- Create env.py file on top lovel of directory and import and add following:
+````
+import os
+
+os.environ['CLOUDINARY_URL'] = 'cloudinary://hidden'
+os.environ['DEV'] = '1'
+os.environ['SECRET_KEY'] = 'hidden'
+os.environ['DATABASE_URL'] = 'postgres://hidden'
+````
+
+### Step 5:
+#### Prepare settings.py file
+- Below was added to:
+````
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
+    'rest_framework',
+    'django_filters',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    'corsheaders',
+
+Below added as it is created:
+
+    'profiles',
+    'posts',
+    'comments',
+    'likes',
+    'followers',
+    'saves',
+    'dms',
+    'thoughts'
+]
+````
+- Add SITE_ID value place under INSTALLED APPS List:
+````
+SITE_ID = 1
+````
+
+- Import database
+````
+import dj_database_url
+import re
+import os
+if os.path.exists('env.py')
+    import env
+````
+- Under the imports, add Cloudinary variable:
+````
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.ger('CLOUDINARY_URL')
+}
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinartStorage'
+````
+
+- Under BASE_DIR, add the following:
+````
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )],
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DATETIME_FORMAT': '%d %b %Y',
+}
+if 'DEV' not in os.environ:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+
+REST_USE_JWT = True
+JWT_AUTH_SECURE = True
+JWT_AUTH_COOKIE = 'my-app-auth'
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'fshn_api.serializers.CurrentUserSerializer'
+}
+````
+- Add Database:
+````
+if 'DEV' in os.environ:
+    DATABASES = {
+         'default': {
+             'ENGINE': 'django.db.backends.sqlite3',
+             'NAME': BASE_DIR / 'db.sqlite3',
+         }
+     }
+else:
+    DATABASES = {
+         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+````
+
+- Update DEBUG and set to only available in development and not production:
+````
+DEBUG = 'DEV' in os.environ
+````
+- Heroku app added to ALLOWED_HOSTS variable:
+````
+ALLOWED_HOSTS = [
+   os.environ.get('ALLOWED_HOST'),
+   'localhost',
+]
+````
+- Using DRF_API walkthrough cheat sheet to add CORS_ALLOWED variable:
+````
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(
+        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE
+    ).group(0)
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
+    ]
+````
+
+- On MIDDLEWARE  list, added following:
+````
+'corsheaders.middleware.CorsMiddleware',
+````
+- Final preparation of environment:
+   - Create Profile on top level of directory and inserted the following:
+   ````
+   web: gunicorn project_name.wsgi
+   ````
+   - Migrate the database:
+   ````
+   python3 manage.py makemigrations
+   python3 manage.py migrate
+   ````
+   
+- In the Terminal:
+   - Update the requirements file
+   ````
+   pip freeze > requirements.txt
+   ````
+   ````
+   git add
+   git commit 
+   git push
+   ````
+
+#### Connect the project’s Github repo to Heroku
+- In Heroku- deploy tab:
+   - On the "Deploy" page, find "Deployment method" section, select "Github" and click the "Connect to Github" button.
+   - Search and click on Github repository project
+   - In the Manual deploy section, choose the Master Branch, click Deploy branch
+   - Alternatively, can deploy via Automatic 
+   - Once complete, click open App to view deployed application.
+
+
 
 ## Credits
-### Content
 ### Media
+- Defualt post image photo taken from Code Institue walkthrough video.
+- Defualt profile image photo taken from Code Institue walkthrough video.
+### Content
+- Code Institute walkthrough video "DRF-API" aided to form step by step process to create the API database.
+- [SteamIt]() was uswd to help create direct messaging model.
+- Lauren-Nicole helped to refine my thoughts model.
+- Code Institute walkthrough DRF cheat sheet used for deployment section.
+
