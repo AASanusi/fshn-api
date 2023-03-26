@@ -71,7 +71,7 @@ ALLOWED_HOSTS = [
    'localhost',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-aasanusi-fshnapi-n0b7yg1l2dx.ws-eu90.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-aasanusi-fshnapi-n0b7yg1l2dx.ws-eu92.gitpod.io']
 
 
 # Application definition

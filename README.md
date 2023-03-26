@@ -37,10 +37,10 @@ Fashion is a social media platform created for all things fashion where designer
    - [Automated Testing]()
    - [Validator Testing](#Validator-Testing)
    - [Unfixed Bugs](#Unfixed-Bugs)
-- [Deployment]()
-- [Credits]()
-   - [Content]()
-   - [Media]()
+- [Deployment](#Deployment)
+- [Credits](#Credits)
+   - [Content](#Content)
+   - [Media](#Media)
 
 ## Project Purpose
 - To design and build a content-sharing web application with React and an API (Django REST Framework) Back-End. 
@@ -146,6 +146,9 @@ Fashion is a social media platform created for all things fashion where designer
 
 ## Testing
 ### Manual Testing
+- Manually confirmed that all the url address created works and opens with no error observed.
+- Tested the CRUD functionality for: Dms, Thoughts, Saves, Comments, Likes, Profiles, Posts, Followers
+   -  
 ### Automated Testing
 ### Validator Testing
 
@@ -319,6 +322,10 @@ ALLOWED_HOSTS = [
    os.environ.get('ALLOWED_HOST'),
    'localhost',
 ]
+````
+- Add updated version of CSRF_TRUSTED_ORIGINS 
+````
+['https://gitpod-browser-link.ws-eu92.gitpod.io']
 ````
 - Using DRF_API walkthrough cheat sheet to add CORS_ALLOWED variable:
 ````
