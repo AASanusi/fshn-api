@@ -159,25 +159,30 @@ To aid with viewing the users stories, you can click links to [Github Issues](ht
 ### Main Languages Used
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 ### Frameworks, Libraries And Programs Used
-1. Django RESTFramework
-2. Django
+1. #### [Django REST framework](https://www.django-rest-framework.org/)
+   - Used to create API project
+2. #### [Django](https://www.djangoproject.com/)
+   - Used to create API project
 3. #### [Heroku](https://id.heroku.com/login)
    - Heroku was used to deploy the project.
-4. Cloudinary
-5. Pillow
-6. Django Rest Auth
-7. #### [PostgreSQL](https://www.postgresql.org/)
+4. #### [Cloudinary](https://cloudinary.com/)
+   - Used to store images
+5. [Pillow](https://python-pillow.org/)
+   - Pythin Imaging libraries.
+6. #### [PostgreSQL](https://www.postgresql.org/)
    - This was used for database.
-8. #### [Git:](https://git-scm.com/)
+7. #### [Git:](https://git-scm.com/)
    - Git was used in the Gitpod terminal to add, commit and push code to Github.
-9. #### [Gitpod:](https://www.gitpod.io/)
+8. #### [Gitpod:](https://www.gitpod.io/)
    - Gitpod is the Integrated Developer Environment used to code this project.
-10. #### [Github:](https://github.com/)
+9. #### [Github:](https://github.com/)
    - Github was used to hold and keep the pushed codes by Git and store projects.
-11. #### [Gitpod Python Essentials Template:](https://github.com/Code-Institute-Org/python-essentials-template)
+10. #### [Gitpod Python Essentials Template:](https://github.com/Code-Institute-Org/python-essentials-template)
    - Gitpod Python Essentials Template was provided by code institute and it consisted of all the relevant tools needed for the successful running of the application.
-12. Lucid Chart
-13. ElephantSQL 
+11. [Lucid Chart](https://lucid.app/)
+   - Used to create Database ERD.
+12. [ElephantSQL](https://www.elephantsql.com/)
+   - New database added to store data in production.
 
 ## Testing
 ### Manual Testing
