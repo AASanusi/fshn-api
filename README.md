@@ -251,7 +251,7 @@ django-admin startproject project_name .
       - Key: SECRET_KEY | Value: hidden
 ##### Below are added after ReactApp:
    - Key: CLIENT_ORIGIN | Value: https://react-app-name.herokuapp.com
-   - Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
+   - Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu92.gitpod.io
 
 ### Step 4:
 #### Prepare env.py file
