@@ -95,7 +95,7 @@ To aid with viewing the users stories, you can click links to [Github Issues](ht
 35. As a logged in user, I can write my location and share it with everyone on the app.
 
 ## Database
-![Database ERD Diagram](static/readme-images/database-erd.png)
+![Database ERD Diagram image](static/readme-images/database-erd.png)
 
 ## Features
 ### Existing Features
@@ -194,18 +194,17 @@ To aid with viewing the users stories, you can click links to [Github Issues](ht
    - Delete: successfully deleted items with no issues
 - All search and filters feature all worked with no issues.
 - For deployed API, tests were done for urls and all loaded.  
-### Automated Testing
 ### Validator Testing
 #### CI Python Linter
 - Below are a few examples of python files that went through [PEP8 validator](https://pep8ci.herokuapp.com/) with no issues. All python files had no errors.
 - Message model through validator 
-![Message model through validator](/static/readme-images/message-validator.png)
+![Message model through validator image](/static/readme-images/message-validator.png)
 - Thoughts views through validator
-![Thoughts views through validator](/static/readme-images/thoughts-validator.png)
+![Thoughts views through validator image](/static/readme-images/thoughts-validator.png)
 - Saves serializers through validator
-![Saves serializers through validator](/static/readme-images/saves-validator.png)
+![Saves serializers through validator image](/static/readme-images/saves-validator.png)
 - Posts urls through validator
-![Posts urls through validator](/static/readme-images/posts-validator.png)
+![Posts urls through validator image](/static/readme-images/posts-validator.png)
 
 ### Unfixed Bugs
 - All bugs were fixed before submitting the project.
