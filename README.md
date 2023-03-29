@@ -29,7 +29,6 @@ Fashion is a social media platform created for all things fashion where designer
    - [Frameworks, Libraries And Programs Used](#Frameworks-Libraries-And-Programs-Used)
 - [Testing](#Testing)
    - [Manual Testing](#Manual-Testing)
-   - [Automated Testing]()
    - [Validator Testing](#Validator-Testing)
    - [Unfixed Bugs](#Unfixed-Bugs)
 - [Deployment](#Deployment)
@@ -43,14 +42,17 @@ Fashion is a social media platform created for all things fashion where designer
 
 ## Planning
 ### Plan
-- The plan for this project was to create three custom models to help with the functionalities. These are:
-   - Thoughts: A wall where users can share their thoughts to either promote their brand, style or on the current climate of fashion in 2023.
+- The plan for this project was to create custom models to help with the functionalities:
+   - Thoughts: A wall where users can share their thoughts to either promote their brand, style or share their thoughts on fashion in 2023.
    - Saves: Bookmark feature for users to save posts they like and would like to view later.
-   - Direct Messaging(dms): This is a private mode communication between users of the application.
+   - Direct Messaging(dms): A form of communication between users of the application.
 ### Demographics
-- For developers who would like to build Front-end content-sharing web application to be intended for users to iteract with the application.
+- For:
+   - Developers who would like to build Front-end content-sharing web application
+- Intended:
+   - For users to interact with the application.
 ## User Stories
-To aid with viewing the users stories, you can click links to [Github Issues](https://github.com/AASanusi/fashion/issues). You can also view the [KANBAN board](https://github.com/users/AASanusi/projects/2).
+To help with viewing the users stories, click [Github Issues](https://github.com/AASanusi/fashion/issues) and [KANBAN board](https://github.com/users/AASanusi/projects/2).
 ### Epic 1: Navigation
 1. As a user I can view user's avatars so that I can easily identify users of the application.
 2. As a user I can view a navbar from every page so that I can navigate easily between pages.
@@ -131,7 +133,7 @@ To aid with viewing the users stories, you can click links to [Github Issues](ht
   - unfollow a user 
 ### Custom models created:
 #### Thoughts
-- Unregistered and registered users view all thoughts shared on thoughts page wall
+- Unregistered and registered users view all thoughts shared on thoughts wall
 - Once registered, Users can:
   - create thoughts
   - view their own thoughts wall
@@ -153,7 +155,7 @@ To aid with viewing the users stories, you can click links to [Github Issues](ht
 ### Features Left to Implement
 - Future implementation will involve adding a categories model for all saved posts.
 - To implement sharing post to another user.
-- Function to block users.
+- Ability for users to block each other.
 
 ## Technologies Used
 ### Main Languages Used
@@ -167,8 +169,8 @@ To aid with viewing the users stories, you can click links to [Github Issues](ht
    - Heroku was used to deploy the project.
 4. #### [Cloudinary](https://cloudinary.com/)
    - Used to store images
-5. [Pillow](https://python-pillow.org/)
-   - Pythin Imaging libraries.
+5. #### [Pillow](https://python-pillow.org/)
+   - Python Imaging libraries.
 6. #### [PostgreSQL](https://www.postgresql.org/)
    - This was used for database.
 7. #### [Git:](https://git-scm.com/)
@@ -179,9 +181,9 @@ To aid with viewing the users stories, you can click links to [Github Issues](ht
    - Github was used to hold and keep the pushed codes by Git and store projects.
 10. #### [Gitpod Python Essentials Template:](https://github.com/Code-Institute-Org/python-essentials-template)
    - Gitpod Python Essentials Template was provided by code institute and it consisted of all the relevant tools needed for the successful running of the application.
-11. [Lucid Chart](https://lucid.app/)
+11. #### [Lucid Chart](https://lucid.app/)
    - Used to create Database ERD.
-12. [ElephantSQL](https://www.elephantsql.com/)
+12. #### [ElephantSQL](https://www.elephantsql.com/)
    - New database added to store data in production.
 
 ## Testing
@@ -235,14 +237,14 @@ django-admin startproject project_name .
 ````
 ### Step 2:
 #### New External Database
-- Log into [ElephantSQL]() account
-- On ElephantSQL dashboard and access the database instance name for the project
+- Log into [ElephantSQL](https://www.elephantsql.com/) account
+- On ElephantSQL dashboard, access the database instance name for the project
 - Copy ElephantSQL database URL(will be pasted in Convig Vars in Heroku and added to env.py on Gitpod later)
 
 ### Step 3:
 #### Heroku App
    - On Heroku, creat and open new App.
-   - Open settings tab and click to Reaveal Config Vars:
+   - Open settings tab and click to "Reveal Config Vars":
       - Key: ALLOWED_HOST | Value: api-app-name.herokuapp.com
       - Key: CLOUDINARY_URL | Value: cloudinary://hidden
       - Key: DATABASE_URL | Value: postgres://hidden
@@ -254,7 +256,7 @@ django-admin startproject project_name .
 
 ### Step 4:
 #### Prepare env.py file
-- Create env.py file on top lovel of directory and import and add following:
+- Create env.py file on top lovel of directory. Import and add following:
 ````
 import os
 
@@ -402,7 +404,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
 'corsheaders.middleware.CorsMiddleware',
 ````
 - Final preparation of environment:
-   - Create Profile on top level of directory and inserted the following:
+   - Create Procfile on top level of directory and add the following:
    ````
    web: gunicorn project_name.wsgi
    ````
@@ -424,12 +426,12 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
    ````
 
 #### Connect the project’s Github repo to Heroku
-- In Heroku- deploy tab:
-   - On the "Deploy" page, find "Deployment method" section, select "Github" and click the "Connect to Github" button.
+- In Heroku "Deploy" tab:
+   - On the "Deploy" page, find "Deployment method" section, select "Github" and click the "Connect to Github" button
    - Search and click on Github repository project
    - In the Manual deploy section, choose the Master Branch, click Deploy branch
-   - Alternatively, can deploy via Automatic 
-   - Once complete, click open App to view deployed application.
+   - Alternatively, can deploy automatically 
+   - Once complete, click open App to view deployed application
 
 
 
@@ -438,8 +440,8 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
 - Default post image photo taken from Code Institue walkthrough video.
 - Default profile image photo taken from Code Institue walkthrough video.
 ### Content
-- Code Institute walkthrough video "DRF-API" aided to form step by step process to create the API database.
+- [Code Institue](https://codeinstitute.net/) walkthrough video "DRF-API" aided to form step by step process to create the API database.
 - [SteamIt](https://steemit.com/utopian-io/@ajmaln/part-1-creating-a-simple-chat-app-with-djangorestframework) was used to help create direct messaging model.
 - Lauren-Nicole helped to refine my thoughts model.
-- Code Institute walkthrough DRF cheat sheet used for deployment section.
+- [Code Institue](https://codeinstitute.net/) walkthrough DRF cheat sheet used for deployment section.
 
